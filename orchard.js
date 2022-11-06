@@ -27,15 +27,13 @@
     in cents. 
 */
 
-const fujiAcres = [2, 3, 3, 2, 2, 2, 1]
-const galaAcres = [5, 2, 4, 3, 6, 2, 4]
-const pinkAcres = [1, 5, 4, 2, 1, 5, 4]
+const fujiAcres = [2, 3, 3, 2, 2, 2, 1];
+const galaAcres = [5, 2, 4, 3, 6, 2, 4];
+const pinkAcres = [1, 5, 4, 2, 1, 5, 4];
 
-const fujiPrice = .89 
-const galaPrice = .64
-const pinkPrice = .55
-
-
+const fujiPrice = 0.89;
+const galaPrice = 0.64;
+const pinkPrice = 0.55;
 
 // PROBLEM 1
 
@@ -51,13 +49,14 @@ const pinkPrice = .55
 
 // CODE HERE
 let totalAcres = 0;
-for (let i=0; i< fujiAcres.length; i++){
-    totalAcres += fujiAcres[i]+galaAcres[i]+pinkAcres[i];
+for (let i = 0; i < fujiAcres.length; i++) {
+  totalAcres += fujiAcres[i] + galaAcres[i] + pinkAcres[i];
 }
-console.log("Total acres: "+ totalAcres);
+console.log("Total acres: " + totalAcres);
+console.log("-----");
 
-
-
+//to get the total acres picked for entire week I have added the total acres of each kind of apples
+//picked for each day of a week using for loop and added total acres in totalacres variable.
 
 // PROBLEM 2
 
@@ -73,10 +72,10 @@ console.log("Total acres: "+ totalAcres);
 
 // CODE HERE
 
-let averageDailyAcres = totalAcres/7;
-console.log("Average daily acres: "+ averageDailyAcres);
-
-
+let averageDailyAcres = totalAcres / 7;
+console.log("Average daily acres: " + averageDailyAcres);
+console.log("-----");
+//To calculate the average i have divided totalacres by 7    as 7 days in week.
 
 // PROBLEM 3
 
@@ -107,16 +106,21 @@ console.log("Average daily acres: "+ averageDailyAcres);
 
 */
 
-let acresLeft = 174 
-let days = 0
+let acresLeft = 174;
+let days = 0;
 
 // CODE HERE
-while(acresLeft >= 0){
-days += 1;
-acresLeft = acresLeft-averageDailyAcres;
+while (acresLeft >= 0) {
+  days += 1;
+  acresLeft = acresLeft - averageDailyAcres;
 }
-console.log("Days: "+ days);
+console.log("Days: " + days);
+console.log("-----");
 
+/*wrote a while loop that will continue to run while `acresLeft` is above 0. 
+so that it will give exact number of days required.
+On each iteration of the loop:added 1 to the `days` variable and subtracted 
+daily average from the number of acres left*/
 
 // PROBLEM 4
 
@@ -144,27 +148,30 @@ console.log("Days: "+ days);
 
 // CODE HERE
 
-let fujiTons =0;
-let galaTons =0;
-let pinkTons =0;
+let fujiTons = 0;
+let galaTons = 0;
+let pinkTons = 0;
 
-//[2, 3, 3, 2, 2, 2, 1];
+//Made an empty array which will have apples in tons picked later.
 let fujiAcresTons = [];
 let galaAcresTons = [];
 let pinkAcresTons = [];
 
-for (let i=0; i<fujiAcres.length; i++){
-    fujiTons = fujiAcres[i] * 6.5;
-    fujiAcresTons.push(fujiTons);
-    galaTons = galaAcres[i] * 6.5;
-    galaAcresTons.push(galaTons)
-    pinkTons = pinkAcres[i] * 6.5;
-    pinkAcresTons.push(pinkTons);
+for (let i = 0; i < fujiAcres.length; i++) {
+  fujiTons = fujiAcres[i] * 6.5;
+  fujiAcresTons.push(fujiTons);
+  galaTons = galaAcres[i] * 6.5;
+  galaAcresTons.push(galaTons);
+  pinkTons = pinkAcres[i] * 6.5;
+  pinkAcresTons.push(pinkTons);
 }
-console.log(fujiAcresTons);
-console.log(galaAcresTons);
-console.log(pinkAcresTons)
+console.log("Fuji apples picked in tons: " + fujiAcresTons);
+console.log("Gala apples picked in tons: " + galaAcresTons);
+console.log("Pink apples picked in tons: " + pinkAcresTons);
+console.log("-----");
 
+/* made an 3 array that list the daily amount of apples picked, in tons, for each variety.
+ Used the push method on acres array yo push the calculated tons of each variety in new array.*/
 
 // PROBLEM 5
 
@@ -182,30 +189,33 @@ console.log(pinkAcresTons)
     Hint: there are 2000 pounds in a ton.
 */
 
-// CODE HERE 
+// CODE HERE
 
- let fujiPounds =0
- let galaPounds =0
-let pinkPounds =0
-let fujiTotaltons=0;
-let galaTotalTons=0;
-let pinkTotalTons=0;
+let fujiPounds = 0;
+let galaPounds = 0;
+let pinkPounds = 0;
+let fujiTotaltons = 0;
+let galaTotalTons = 0;
+let pinkTotalTons = 0;
 
-
-for(let i=0; i<fujiAcresTons.length; i++){
-fujiTotaltons += fujiAcresTons[i];
-galaTotalTons += galaAcresTons[i];
-pinkTotalTons += pinkAcresTons[i];
+for (let i = 0; i < fujiAcresTons.length; i++) {
+  fujiTotaltons += fujiAcresTons[i];
+  galaTotalTons += galaAcresTons[i];
+  pinkTotalTons += pinkAcresTons[i];
 }
 
-fujiPounds = fujiTotaltons* 2000;
-galaPounds = galaTotalTons *2000;
-pinkPounds= pinkTotalTons*2000;
+fujiPounds = fujiTotaltons * 2000;
+galaPounds = galaTotalTons * 2000;
+pinkPounds = pinkTotalTons * 2000;
 
-console.log("Total pounds picked: ")
+console.log("Total pounds picked are below ");
 console.log("fuji: " + fujiPounds);
 console.log("gala: " + galaPounds);
 console.log("pink: " + pinkPounds);
+console.log("-----");
+/*To calculate the total number of pounds picked per variety.
+I have added total tons picked for every variety over a week through for loop.
+Then converted the total tons into the pounds using conversion of tons into pound.*/
 
 // PROBLEM 6
 
@@ -225,14 +235,20 @@ console.log("pink: " + pinkPounds);
 
 // CODE HERE
 
-// let fujiProfit =
-// let galaProfit =
-// let pinkProfit =
+let fujiProfit = 0;
+let galaProfit = 0;
+let pinkProfit = 0;
 
+fujiProfit = (fujiPounds * fujiPrice) / 100;
+galaProfit = (galaPounds * galaPrice) / 100;
+pinkProfit = (pinkPounds * pinkPrice) / 100;
+console.log("fuji profit: $" + fujiProfit);
+console.log("gala profit: $" + galaProfit);
+console.log("pink profit: $" + pinkProfit);
+console.log("-----");
 
-
-
-
+//Calculated the profit by multiplying total pounds picked by
+//given price for each variety and then converted the profit into dollars.
 
 // PROBLEM 7
 
@@ -245,3 +261,6 @@ console.log("pink: " + pinkPounds);
 */
 
 // CODE HERE
+let totalProfit = fujiProfit + galaProfit + pinkProfit;
+console.log("Total profit: $" + totalProfit);
+//Added the profit of all the three vaiety of apples to get the total profit.
